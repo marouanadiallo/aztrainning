@@ -4,12 +4,12 @@ spring:
 
   cloud:
     azure:
+      credentials:
+        managed-identity-enabled: true
       keyvault:
         secret:
           property-sources[0]:
-            - endpoint: ${AZURE_KEY_VAULT_ENDPOINT}
-            - credential:
-                managed-identity-enabled: true
+            endpoint: ${AZURE_KEY_VAULT_ENDPOINT}
 
 server:
   port: 80
