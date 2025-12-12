@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: aztrainning
+
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            endpoint: ${AZURE_KEY_VAULT_ENDPOINT}
+
+server:
+  port: 80
