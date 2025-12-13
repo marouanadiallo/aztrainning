@@ -10,6 +10,9 @@ spring:
         secret:
           property-sources[0]:
             endpoint: ${AZURE_KEY_VAULT_ENDPOINT}
-
+  datasource:
+    url: h2:mem:practiceDb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 server:
   port: 80
