@@ -15,14 +15,15 @@ public class Task {
     public Task() {
         this.id = null;
         this.businessKey = UUID.randomUUID();
+        this.status = TaskStatus.PENDING;
     }
 
-    public Task(Long id, String title, String description) {
+    public Task(Long id, String title, String description, TaskStatus status, UUID businessKey) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.businessKey = UUID.randomUUID();
-        this.status = TaskStatus.PENDING;
+        this.businessKey = businessKey;
+        this.status = status;
     }
 
     public Long getId() {

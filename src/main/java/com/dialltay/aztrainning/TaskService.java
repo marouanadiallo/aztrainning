@@ -1,8 +1,8 @@
 package com.dialltay.aztrainning;
 
-import java.util.List;
+import java.util.Set;
 
 public interface TaskService {
-    List<Task> getAllTasks();
-    void addTask(Task task);
+    Set<Task> getTop10Tasks();
+    Long addTask(Task task);
 }

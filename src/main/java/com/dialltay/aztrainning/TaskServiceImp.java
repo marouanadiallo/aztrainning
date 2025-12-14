@@ -2,22 +2,23 @@ package com.dialltay.aztrainning;
 
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 public class TaskServiceImp implements TaskService {
 
-    @Override
-    public List<Task> getAllTasks() {
-        return List.of(
-                new Task(1L, "Task 1", "Description for Task 1"),
-                new Task(2L, "Task 2", "Description for Task 2"),
-                new Task(3L, "Task 3", "Description for Task 3")
-        );
+    private final TaskRepository taskRepository;
+    public TaskServiceImp(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
 
     @Override
-    public void addTask(Task task) {
+    public Set<Task> getTop10Tasks() {
+       return this.taskRepository.findTop10Tasks();
+    }
 
+    @Override
+    public Long addTask(Task task) {
+        return this.taskRepository.save(task);
     }
 }

@@ -16,7 +16,7 @@ public class HomeController {
 
     @GetMapping({ "", "index.html", "index" })
     public String home(Model model) {
-        model.addAttribute("tasks", taskService.getAllTasks());
+        model.addAttribute("tasks", taskService.getTop10Tasks());
         return "index";
     }
 
