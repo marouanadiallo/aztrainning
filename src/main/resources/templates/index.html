@@ -1,73 +1,16 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}"
+>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AZ trainning</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #406563;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        footer {
-            background-color: #406563;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .section-header a {
-            text-decoration: none;
-            color: #406563;
-            font-weight: bold;
-        }
-    </style>
+    <title>Training | Dailltay</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to AZ training!</h1>
-    </header>
-
-    <main>
+    <main layout:fragment="content">
         <section class="section-header">
             <h2>Task List</h2>
-            <a th:href="@{/tasks}">Add new task</a>
+            <a th:href="@{/tasks}" class="btn-link">Add new task</a>
         </section>
         <p th:if="${!#strings.isEmpty(successMessage)}">
             <strong th:text="${successMessage}">Task added successfully!</strong>
@@ -91,9 +34,5 @@
             </tbody>
         </table>
     </main>
-
-    <footer>
-        <p>&copy; 2024 AZ Training. All rights reserved.</p>
-    </footer>
 </body>
 </html>
