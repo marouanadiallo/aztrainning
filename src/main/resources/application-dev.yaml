@@ -1,7 +1,9 @@
 spring:
   application:
     name: aztrainning
-
+  h2:
+    console:
+      enabled: true
   datasource:
     url: jdbc:h2:mem:practiceDb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa

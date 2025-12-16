@@ -1,6 +1,11 @@
 spring:
   application:
     name: aztrainning
+  h2:
+    console:
+      enabled: true #for testing purposes only
+  liquibase:
+    enabled: true
 
   cloud:
     azure:

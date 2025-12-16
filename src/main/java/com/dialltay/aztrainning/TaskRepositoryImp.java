@@ -17,7 +17,7 @@ public class TaskRepositoryImp implements TaskRepository {
 
     @Override
     public Long save(Task task) {
-        String sql = "INSERT INTO tasks (title, description, status, business_key) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO t_tasks (title, description, status, business_key) VALUES (?, ?, ?, ?)";
         var keyHolder = new GeneratedKeyHolder();
         jdbcClient.sql(sql)
                 .param(task.getTitle())
@@ -30,7 +30,7 @@ public class TaskRepositoryImp implements TaskRepository {
 
     @Override
     public Set<Task> findTop10Tasks() {
-        String sql = "SELECT id, title, description, status, business_key FROM tasks ORDER BY id DESC LIMIT 10";
+        String sql = "SELECT id, title, description, status, business_key FROM t_tasks ORDER BY id DESC LIMIT 10";
         return Set.copyOf(
                 jdbcClient.sql(sql)
                         .query((rs, rowNum) -> new Task(

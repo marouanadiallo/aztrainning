@@ -1,4 +1,4 @@
-<!doctype html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!doctype html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -9,7 +9,7 @@
     <title>Add task</title>
 </head>
 <body>
-    <main layout:fragment="content">
+    <main layout:fragment="content" x-data="tasksModule">
         <section class="section-header">
             <h2>Create a New Task</h2>
             <a th:href="@{/}" class="btn-link">Back to list</a>
@@ -28,5 +28,9 @@
             </div>
         </form>
     </main>
+
+    <th:block layout:fragment="scripts">
+        <script th:src="@{/js/tasks.js}"></script>
+    </th:block>
 </body>
 </html>
